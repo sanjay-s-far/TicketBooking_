@@ -1,0 +1,44 @@
+.addingform{
+    padding: 20px;
+}
+.addingform{
+    border: 1px solid gray;
+    border-radius: 15px;
+}
+.resource-add-btn{
+    float: right;
+}
+.count-bar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.count{
+    width: 200px;
+    height: 100px;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.count:nth-child(1) h1{
+    color: rgb(27, 0, 178);
+}
+.count:nth-child(1) div ,.count:nth-child(2) div,.count:nth-child(3) div,.count:nth-child(4) div{
+    color: rgb(73, 73, 73);
+    text-align: center;
+}
+.count:nth-child(2) h1 {
+    color: rgb(53, 178, 0);
+}
+
+.count:nth-child(3) h1{
+    color: rgb(197, 128, 0);
+}
+.count:nth-child(4) h1{
+    color: rgb(200, 0, 37);
+}

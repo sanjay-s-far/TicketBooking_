@@ -1,0 +1,163 @@
+.home-background
+{
+   background-image: url("../../../assets/Images/busBG.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height:100vh;
+}
+.journeybox
+{
+  width:650px;
+   padding: 20px;
+   margin-top: 10px;
+   background:white;
+   margin:auto;
+   border-radius:15px;
+   box-shadow:10px 10px;
+}
+
+.profileheader
+{
+   display:flex;
+   float: right;
+   right: 4%;
+}
+
+
+.logoutbtn
+{
+   margin-right:20px;
+   width:80px;
+   
+
+}
+
+
+.profile
+{
+   font-size: 19px;
+}
+.cardcontent
+{
+   width:1000px;
+   background:red;
+   display:flex;
+   justify-content:space-between;
+}
+
+
+.outbutton
+{
+   position:absolute;
+   right:0;
+   padding:20px;
+}
+.regbutton,.signbutton
+{
+    background:rgb(41, 194, 191);
+    border-radius:10px;
+    border:1px solid grey;
+    padding:3px 10px;
+    margin-right:20px;
+    
+}
+.signbutton
+{
+   width:100%;
+   position:relative;
+   cursor:pointer;
+   margin-right: 100px;
+   width:30px;
+   top:0;
+   left:0;
+   float:left;
+}
+
+
+
+@keyframes runingBus
+{
+   0% { transform: translate(500px,  0px); }
+    50%  { transform: translate(10px, 0px); }
+    100%   { transform: translate(0, -0px); }
+}
+
+.regbutton:hover
+{
+    background:rgb(128, 171, 170);
+}
+.journeyinp 
+{
+   margin-bottom:20px;
+   cursor:pointer;
+  
+}
+.journeyinp
+{
+   width:100%;
+   display:flex;
+   justify-content:space-between;
+}
+
+
+
+.submitbtn{
+   position: relative;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   width: 100%;
+   overflow: hidden;
+}
+
+  .busimage{
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   left: -50px;
+}
+.submitBtn{
+   width: 100%;
+}
+.submitBtn:hover ~ .busimage{
+   
+   animation: runing 3s normal ;
+}
+
+.bus-cards{
+   display: flex;
+   /* flex-direction: column; */
+   justify-content: center;
+   align-items: center;
+}
+
+@keyframes runing
+{
+   0% { transform: translate(-200px,  0px); }
+  
+    100%   { transform: translate(700px, 0px); }
+}
+ 
+ 
+.profiler-avatar {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+}
+.profavatar{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   }
+
+.submit_btn{
+   display: flex;
+   width: 100%;
+   justify-content: center;
+}
+.error.msg{
+   color:red;
+   font-size: 10px;
+   
+}

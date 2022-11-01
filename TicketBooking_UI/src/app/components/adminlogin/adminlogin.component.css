@@ -1,0 +1,30 @@
+.login-box{
+    width: 40%;
+    border: 1px solid rgb(183, 183, 183);
+    box-shadow: 10px 10px 12px gray;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+    position: relative;
+    /* top: 30%; */
+}
+.login-box-bg{
+    background-image: url("../../../assets/Images/AdminLoginAbstract.jpg");
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ErrorBox{
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.692);
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}

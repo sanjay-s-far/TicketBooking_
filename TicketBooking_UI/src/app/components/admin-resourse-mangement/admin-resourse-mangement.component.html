@@ -1,0 +1,83 @@
+
+<div class="container" [class.d-none]="visibility">
+    <h1 class="text-center">Resourse Management </h1>
+    <a class="btn btn-primary resource-add-btn mb-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        Add Resourse
+      </a>
+      <div class="count-bar container mb-3">
+        <div class="count shadow">
+          <div>
+            <h1>{{counts.userCount}}</h1> 
+            <p>User</p>
+          </div>
+            
+        </div>
+        <div class="count shadow">
+          <div>
+            <h1>{{counts.busCount}}</h1> 
+            <p>Bus</p>
+          </div>
+        </div>
+        <div class="count shadow">
+          <div>
+            <h1>{{counts.schedules}}</h1> 
+            <p>Schedules</p>
+          </div>
+        </div>
+        <div class="count shadow">
+          <div>
+            <h1>{{counts.bookings}}</h1> 
+            <p>Bookings</p>
+          </div>
+        </div>
+      </div>
+    <div class="content-table mt-5">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">sr</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Role</th>
+                <th scope="col">options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detail of AllAdmins;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{detail.adminName}}</td>
+                <td scope="row">{{detail.contactMail}}</td>
+                <td>{{detail.role}}</td>
+                
+                <td>
+                    <div class="option-btn">
+                        <button class="btn btn-secondary me-4">Edti</button>
+                        <button class="btn btn-danger" (click)="DeleteTheAdmin(detail.adminId)">delete</button>
+                    </div>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+    <div class="resourseform ">
+        
+    
+          <div class="offcanvas offcanvas-start p-2" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add Resourse</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <form class="addingform" (ngSubmit)="addingNewAdmin()" >
+      <input type="text"  class="form-control mb-3"  placeholder="Enter Name of the admin" name="AdminName" [(ngModel)]="admincredential.adminName" >
+      <input type="email"  class="form-control mb-3"  placeholder="Enter the Email of the user" name="Mail" [(ngModel)]="admincredential.contactMail" >
+      <input type="password"  class="form-control mb-3"  placeholder="Set Password for the user" name="AdminName" [(ngModel)]="admincredential.password" >
+<select name="role" [(ngModel)]="admincredential.role" class="form-select mb-3">
+    <option selected value="ADMIN-ALL">ADMIN-all permission applied</option>
+    <option value="ADMIN-R">ADMIN-with read only</option>
+</select>
+    <button class="btn btn-secondary w-100" type="submit"> Add</button>
+            </form>
+            
+    </div>
+</div>

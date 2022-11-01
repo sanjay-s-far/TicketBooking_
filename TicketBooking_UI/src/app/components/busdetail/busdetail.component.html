@@ -1,0 +1,36 @@
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Busname</th>
+            <th scope="col">Busno</th>
+            <th scope="col">BusModel</th>
+            <th scope="col">NoOfSeats</th>
+            <th scope="col">Mode</th>
+            <th scope="col">coverage</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of allbusdetail">
+            <th scope="row">{{i.busId}}</th>
+            <th scope="col">{{i.busName}}</th>
+            <th scope="col">{{i.busNo}}</th>
+            <th scope="col">{{i.busModel}}</th>
+            <th scope="col">{{i.noOfSeats}}</th>
+            <th scope="col">{{i.mode}}</th>
+            <th scope="col">{{i.coverage}}</th>
+            <th scope="col">
+              <div class="options-btn">
+                <button class="btn btn-primary mx-2"><i class="fa-solid fa-square-pen"></i></button>
+              <button class="btn btn-danger" (click)="deletebyidbusdetail(i.busId)"><i class="fa-solid fa-trash"></i></button>
+              </div>
+              
+            </th>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>

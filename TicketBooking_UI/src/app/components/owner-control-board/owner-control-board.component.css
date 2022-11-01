@@ -1,0 +1,33 @@
+.heading-tag{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-heading-tag h1{
+color: rgb(27, 27, 56);
+}
+.left-heading-tag p ,.right-heading-tag p{
+    color: gray;
+    font-size: 15px;
+}
+
+.right-heading-tag h1{
+    color: rgb(150, 0, 0);
+}
+.right-heading-tag p:hover  , .left-heading-tag p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }

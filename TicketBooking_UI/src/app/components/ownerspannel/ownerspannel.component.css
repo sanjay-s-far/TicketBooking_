@@ -1,0 +1,23 @@
+.busentryBox{
+    border: 1px solid rgb(163, 161, 161);
+    border-radius: 10px;
+    padding: 35px;
+    box-shadow: 0px 0px 10px 1px rgba(128, 128, 128, 0.55);
+    position: relative;
+}
+.header{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    
+}
+.seatcount1,.seatcount2
+{
+    width:550px;
+    display:flex;
+    justify-content:space-between;
+}
+.seatsize
+{
+    width:150px;
+}

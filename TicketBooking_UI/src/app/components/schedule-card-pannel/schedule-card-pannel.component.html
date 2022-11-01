@@ -1,0 +1,75 @@
+<div class="container bus-card-container" [class.d-none]="visibility">
+    <button >Schedule new Bus</button>
+      <div #widgetsContent class="middle">
+          <div class="info-widget" *ngFor="let val of schedulecard">
+              <div  class="card bus-card rounded border-2 mx-4" style="width: 350px;">
+                  <div class="card-body "  >
+                      <table class="table table-borderless" disabled="disable">
+                          <tbody>
+                            <tr>
+                              <th id="schedule-content"scope="row">BusName</th>
+                              <td><input type="text"  [(ngModel)]="val.busName"  [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            </tr>
+                            <tr>
+                              <th  id="schedule-content" scope="row">From </th>
+                              <td><input type="text" [(ngModel)]="val.from" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            </tr>
+                            <tr>
+                              <th  id="schedule-content" scope="row">To</th>
+      
+                              <td><input type="text" [(ngModel)]="val.to" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            </tr>
+                            <tr>
+                              <th  id="schedule-content" scope="row">Distance</th>
+      
+                              <td><input type="text" [(ngModel)]="val.distance"[disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            </tr>
+                            <tr>
+                              <th  id="schedule-content" scope="row">Departure Area</th>
+                              <td><input type="text" [(ngModel)]="val.departureArea" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          
+                            </tr>
+                            <tr>
+                              <th id="schedule-content" scope="row">StartTime</th>
+                              <td><input type="text" [(ngModel)]="val.startingTime" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          
+                            </tr>
+                            <tr>
+                              <th id="schedule-content" scope="row">Reached Time</th>
+                              <td><input type="text" [(ngModel)]="val.reachTime"[disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          
+                            </tr>
+                            <tr>
+                              <th  id="schedule-content" scope="row">Fair</th>
+                              <td><input type="text" [(ngModel)]="val.fairPerSeat" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          
+                            </tr>
+                            <tr>
+                              <th id="schedule-content" scope="row">AvailableStatus</th>
+                              <td><input type="text" [(ngModel)]="val.available_status"  [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "> </td>
+                          
+                            </tr>
+                           
+                          </tbody>
+                          
+                        </table>
+                  </div>
+                  <div class="btnstyle mb-3">
+                    <button type="button" [disabled]="val.scheduleID==sch_id" class="btn btn-primary pwr-btn mx-2" (click)="edit_enable(val.scheduleID)" > <i class="fa-solid fa-pen-to-square"></i></button>
+  
+                    <button type="button" (click)="update_detail(val.scheduleID,val)" *ngIf="val.scheduleID==sch_id" class="btn btn-success pwr-btn mx-2" ><i class="fa-solid fa-upload"></i></button>
+                
+                    <button type="button" (click)="schedule_delete(val.scheduleID)" class="btn btn-danger pwr-btn mx-2"><i class="fa-solid fa-trash"></i></button>
+                    
+                  </div>
+                  </div>
+                </div>  
+          </div>
+      </div>
+      
+  
+    
+     
+      
+  
+  

@@ -1,0 +1,50 @@
+<div class="container-fluid bus-card-container ">
+    <div #widgetsContent class="middle">
+        <div class="info-widget" *ngFor="let val of schedulebusdetail">
+            <div  class="card bus-card rounded border-2 mx-4" style="width: 350px;">
+                <div class="card-body "  >
+                    <table class="table table-borderless" disabled="disable">
+                        
+                        <tbody>
+                          <tr>
+                            <th id="schedule-content"scope="row">BusNo</th>
+                            <td><input type="text" [(ngModel)]="val.busNo" [disabled]="schedule_enable"></td>
+                          </tr>
+                          <tr>
+                            <th id="schedule-content" scope="row">BusName</th>
+                            <td><input type="text" [(ngModel)]="val.busName" [disabled]="schedule_enable"></td>
+                        
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">BusModel </th>
+    
+                            <td><input type="text" [(ngModel)]="val.busModel" [disabled]="schedule_enable"></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">NoOfSeats</th>
+    
+                            <td><input type="text" [(ngModel)]="val.noOfSeats" [disabled]="schedule_enable"></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">Mode</th>
+    
+                            <td><input type="text" [(ngModel)]="val.mode"[disabled]="schedule_enable"></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row"> Coverage</th>
+                            <td><input type="text" [(ngModel)]="val.coverage" [disabled]="schedule_enable"></td>
+                        
+                          </tr>
+                       </tbody>
+                        <div class="btnstyle">
+                            <button type="button" class="btn btnedit" (click)="update_schedule(val.busId)">Edit</button>
+                            <button type="button" (click)="schedule_delete(val.busId)" class="btn btnedit">Delete</button>
+                          </div>
+                      </table>
+                </div>
+                
+                </div>
+              </div>
+        </div>
+    </div>
+

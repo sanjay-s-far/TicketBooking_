@@ -1,0 +1,37 @@
+<div class="container mt-5 w-50 busentryBox">
+    <h1 class="header">BUS DETAILS</h1>
+    <form (ngSubmit) = "onsubmit()" >
+        <div class="mb-1">
+            <label for="exampleFormControlInput1"  class="form-label">BUSNAME</label>
+            <input type="text" class="form-control" name="busname" [(ngModel)]="busdetail.busName" id="exampleFormControlInput1" placeholder="Busname">
+          </div>
+          <div class="mb-1">
+            <label for="EmailField"  class="form-label">CONTACT MAIL</label>
+            <input type="email" class="form-control" name="contactMail" [(ngModel)]="busdetail.contactMail" id="EmailField" placeholder="Contact Mail">
+          </div>
+          <div class="mb-1">
+            <label for="exampleFormControlInput1"  class="form-label">BUSNO</label>
+            <input type="text" class="form-control" name="busnO" [(ngModel)]="busdetail.busNo" id="exampleFormControlInput1" placeholder="Busname">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">BUS MODEL</label>
+            <input type="text" class="form-control" name="busmodel" [(ngModel)]="busdetail.busModel" id="exampleFormControlInput1" placeholder="Busmodel">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">NO OF SEATS</label>
+            <input type="number" class="form-control" name="no of seats" [(ngModel)]="busdetail.noOfSeats"id="exampleFormControlInput1" placeholder="No of Seats">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">MODE</label>
+            <input type="text" class="form-control" name="mode" [(ngModel)]="busdetail.mode" id="exampleFormControlInput1" placeholder="Mode">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Coverage</label>
+            <input type="text" class="form-control"  name="Coverage" [(ngModel)]="busdetail.coverage" id="exampleFormControlInput1" placeholder="Coverage">
+          </div>
+         
+          <button type="submit" class=" btn btn-primary">Submit</button>
+    </form>
+    
+</div>
+

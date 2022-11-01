@@ -1,0 +1,81 @@
+
+.card-body
+{
+    display:flex;
+    padding:0px!important;
+}
+.seat-count{
+    display: inline;
+}
+.slash{
+    font-size: 25px;
+}
+.avail-seat{
+    color: rgb(0, 148, 0);
+}
+.booking-btn{
+    position: relative;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+.bus-card:hover{
+    transform: scale(1.005);
+    box-shadow: 0 1rem 3rem rgba(128, 128, 128, 0.461);
+}
+
+.info-widget {
+    width: 32%;
+    display: inline-block;
+    padding: 8px;
+  }
+
+  /* .middle {
+    float: left;
+    white-space: nowrap;
+  } */
+ .bus-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+ .floating-btn{
+    margin:0px 20px;
+    background-color: rgb(223, 223, 223);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+ }
+ .floating-btn:hover{
+    transform: scale(1.1);
+    background-color: rgb(218, 218, 218);
+ }
+ .buttonprofile
+ {
+    width:700px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:140px;
+   
+ }
+ 
+ #schedule-content
+ {
+    background:#00a9ff2e;
+ }
+ 
+ .btnstyle{
+   display:flex;
+   justify-content:center;
+   align-items: center;
+ }
+
+.pwr-btn{
+    border-radius: 50%;
+
+}

@@ -1,0 +1,112 @@
+<div class="home-background">
+   
+    <div class="journeysection">
+      <div class="profileheader dropdown" >
+        <div class="credential-btns mt-3" [class.d-none]="!if_userpresent" >
+          <a class="btn btn-primary mx-4" id="loginevent" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Login</a>
+          <a class="btn btn-secondary me-5" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Register</a>
+        </div>
+        <div class="profavatar mt-3" [class.d-none]="if_userpresent">
+          <img title="{{username}}" class="profiler-avatar me-3" [src]=profilerLogo/>
+        <div class="caption"> <button type="button" (click)="logout($event)" class="logoutbtn btn btn-primary">LogOut</button></div>
+       
+        </div>
+
+     
+      </div>
+      
+      <form (ngSubmit)="getbusschedule()">
+      <div class="journeybox shadow p-3 mb-5 bg-body rounded">
+        <div class="journeyinp">
+          <div class="form-floating mb-2 ">
+          <input type="date" class="form-control"  id="floatingInput" min="{{today | date:'yyyy-MM-dd'}}" name = "date" [(ngModel)]="date">
+          </div>
+          <div class="form-floating mb-3 ">
+            <select class="form-select"  (ngModelChange)="onfrom($event)" [(ngModel)]="from" name="from"  aria-label="Default select example" >
+              <option selected>Where to Pickup?</option>
+              <option  [value]="value" *ngFor="let value of buscoverage" >{{value}}</option>
+            </select>
+           
+          </div>
+          <div class="form-floating">
+            <select class="form-select"   [(ngModel)]="to" name="to"  aria-label="Default select example" >
+              <option selected>Where to dro?</option>
+              <option  [value]="value" *ngFor="let value of savefromoption" >{{value}}</option>
+              
+            </select>
+            
+            </div>
+        </div>
+        <div class="submitbtn">
+          <button type="submit"  [disabled]="!date||!from ||!to" class="btn btn-secondary submitBtn" >Submit
+          </button>
+          <img class="busimage" src="../../assets/Images/bus2.svg">
+        </div>
+      </div>
+      </form>
+    </div>
+    <div [class.d-none]="schedulelist==null">
+    <app-buscardlist  [schedulelist]="schedulelist"></app-buscardlist>
+  </div>
+    </div>
+    
+<div class="modal fade login_modal" data-bs-backdrop="static" #modal id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="login-form" (ngSubmit)="login()"> 
+            <div class="login-fields">
+                <input type="text" class="form-control mb-4" name="username" [(ngModel)]="username"  placeholder="User name"  required>
+                <!-- <div *ngIf="username.errors?.['required']">
+                  <p class="error-msg">this field is required</p>
+                </div> -->
+                <input type="password" class="form-control mb-4" name="password" [(ngModel)]="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary submit_btn">Login</button>
+            
+            <div class="modal-footer">
+                <h6 class="text-center mt-2">Don't have an Account? <a class="Register" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</a></h6>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="login" (ngSubmit)="submitcredential()">
+                <div class="loginfield">
+                    <input type="text"class="form-control mb-4"  name="username" [(ngModel)]="reg.username" placeholder="User name" required>
+                    <input type="text" class="form-control mb-4"   name="name" [(ngModel)]="reg.name" placeholder="Name" required>
+                    <input type="email" class="form-control mb-4"  name="email" [(ngModel)]="reg.email" placeholder="Email" required>
+                    <input type="text" class="form-control mb-4"  name="mobileno"  [(ngModel)]="reg.mobileno" placeholder="91-xxxx-xxxx-xx" required>
+                    <input type="password" class="form-control mb-4"   name="password" [(ngModel)]="reg.password" placeholder="Password" required>
+                    <ngx-password-strength-meter [password]="reg.password"></ngx-password-strength-meter>
+                    <button type="submit" class="btn btn-primary submit_btn" data-bs-toggle="modal">Register</button>
+                </div>
+                
+                <div class="modal-footer">
+                  <h6 class="text-center mt-2">Already have an Account? <a class="Register" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">login</a></h6>
+                    
+                  </div>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+    
+    

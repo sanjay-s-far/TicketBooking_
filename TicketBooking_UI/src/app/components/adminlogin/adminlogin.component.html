@@ -1,0 +1,20 @@
+<div class="container-fluid login-box-bg">
+  <div class="ErrorBox mb-3" *ngIf="Error != null">
+    <i class="fa-solid fa-triangle-exclamation"></i> {{Error}}
+  </div>
+<div class="container login-box">
+  
+<form (ngSubmit)="AdminLogin()" class="mt-2">
+  
+    <div class="form-header">
+    <div class="mb-3 ">
+      <input type="text"  class="form-control"  placeholder="UserName" name="AdminName" [(ngModel)]="adminName" >
+    </div>
+    <div class="mb-3">
+     <input type="password"  class="form-control" placeholder="Password" name="busNo" [(ngModel)]="adminPassword"  >
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </div>
+  </form>
+</div>
+</div>

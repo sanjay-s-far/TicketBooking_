@@ -1,0 +1,31 @@
+.busentryBox{
+    border: 1px solid rgb(163, 161, 161);
+    background-color: white;
+    border-radius: 10px;
+    padding: 35px;
+    box-shadow: 0px 0px 10px 1px rgba(128, 128, 128, 0.55);
+    position: relative;
+}
+.header{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    
+}
+.error-msg{
+    color: red;
+    font-size: 10px;
+}
+.bus_schedule{
+    background-image: url("../../../assets/Images/bus_sc_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px;
+}
+.submit-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

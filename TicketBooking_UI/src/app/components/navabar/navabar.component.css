@@ -1,0 +1,38 @@
+h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+    padding:0;
+}
+
+
+/* .homecontainer
+{
+
+    display:flex;
+    width:100%;
+    justify-content:space-between;
+}
+.outbutton
+{
+    margin-right:50px;
+   
+}
+.regbutton,.signbutton
+{
+    background:rgb(41, 194, 191);
+    border-radius:10px;
+    border:1px solid grey;
+    padding:3px 10px;
+    
+}
+.signbutton:hover
+{
+  background:rgb(128, 171, 170);
+}
+.regbutton:hover
+{
+    background:rgb(128, 171, 170);
+}
+.regbutton
+{
+    margin-right:30px;
+} */
