@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import seatconfiguration1 from '../../../assets/seatconfig-json/seatconfig-1.json';
 import seatconfiguration2 from '../../../assets/seatconfig-json/seatconfig-2.json';
@@ -14,7 +15,7 @@ export class TickseatselectionComponent implements OnInit {
     showRowWisePricing: false,
     newSeatNoForRow: false
   };
-
+seatconfigmap:any;
   @Input() seatconfig:any;
 
 
@@ -23,12 +24,32 @@ export class TickseatselectionComponent implements OnInit {
    }
   ngOnInit(): void {
     console.log(this.seatconfig)
-    
-
-      this.processSeatChart(this.seatconfig);
+    // this.processSeatChart(seatconfiguration1)
+    if(this.seatconfig == 'seatconfig-1'){
+      
+      this.seatconfigmap = seatconfiguration1
+      this.processSeatChart(seatconfiguration1)
+      console.log(this.seatconfig + " " + this.seatconfigmap)
+    }
+    if(this.seatconfig != null){
+      if(this.seatconfig=='seatconfig-1'){
+       console.log('logged for seatconfig 1')
+      }else if(this.seatconfig == 'seatconfig-2'){
+        alert("triggred an alert for seat config 2")
+      }
+    }
   
   }
 
+seatingmap(){
+  if(this.seatconfig != null){
+    if(this.seatconfig=='seatconfig-1'){
+      alert("triggred an alert for seat config 1")
+    }else if(this.seatconfig == 'seatconfig-2'){
+      alert("triggred an alert for seat config 2")
+    }
+  }
+}
 
   public processSeatChart(map_data: any[]) {
     console.log(this.seatconfig)
