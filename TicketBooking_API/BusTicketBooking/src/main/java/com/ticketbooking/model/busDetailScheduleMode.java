@@ -4,21 +4,19 @@ import java.util.List;
 
 import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Entity.Bus_Detail;
-import com.ticketbooking.Service.BusScheduleService;
+import com.ticketbooking.Repository.Bus_Detailrepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class BusDetailWithSchedules {
+@NoArgsConstructor
+public class busDetailScheduleMode {
 	
-	private Bus_Detail busDetail;
-	
-	private List<BusSchedule> busSchedules;
+	public Bus_Detail bsdetail;
+	public List<BusSchedule> bschedule;
 
 }

@@ -26,4 +26,5 @@ public class BusCardModel {
 	private LocalDateTime reachTime;
 	private int fairPerSeat;
 	private String mode;
+	private String seatconfig;
 }

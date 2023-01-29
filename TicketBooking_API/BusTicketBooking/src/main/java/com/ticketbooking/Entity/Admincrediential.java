@@ -7,25 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class AdminCredentials {
-	
-	@Id()
-	private String adminId;
-	
-	private String adminName;
-	
-	private String contactMail;
-	
-	private String password;
-	
-	private String role;
-	
-	
-
+public class Admincrediential {
+@Id
+private String adminid;
+private String adminname;
+private String adminpassword;
+private String rollbase;
 }

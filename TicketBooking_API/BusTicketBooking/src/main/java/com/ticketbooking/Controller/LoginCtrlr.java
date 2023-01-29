@@ -20,12 +20,13 @@ import com.ticketbooking.Service.LoginService;
 import com.ticketbooking.Entity.Login;
 
 @RestController
+@CrossOrigin("http://localhost:4500")
 public class LoginCtrlr {
 	
     @Autowired
     private LoginService loginservice;
     
-    @CrossOrigin("http://localhost:4200")
+    
     @PostMapping("/login")
     public Login Login(@RequestBody Login login) {
     	if(loginservice.UserExist(login.getUsername())) {
@@ -41,12 +42,13 @@ public class LoginCtrlr {
     	return loginservice.getuserdetail();	 
     }
     
-    @CrossOrigin("http://localhost:4200")
+ 
     @GetMapping("/signup")
     public ResponseEntity<?> signup(@PathParam("username") String username,@PathParam("password") String password ) {
     	if(loginservice.LoginINUser(username, password)!= null) {
     	return new ResponseEntity<>( loginservice.LoginINUser(username, password),HttpStatus.OK);
-    }else{
+        
+    	}else{
     	return new ResponseEntity<>("USER DOES NOT EXIST, TRY REGISTERING",HttpStatus.INTERNAL_SERVER_ERROR);
     }
     }

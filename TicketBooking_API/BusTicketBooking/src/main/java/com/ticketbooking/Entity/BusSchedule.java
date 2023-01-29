@@ -5,12 +5,10 @@ package com.ticketbooking.Entity;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,14 +20,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "busSchedule")
 public class BusSchedule {
 	@Id
 	private String scheduleID;
-	
-	@Column(name="busId")
 	private String busId;
-	
 	private String busName;
 	private String from;
 	private String to;

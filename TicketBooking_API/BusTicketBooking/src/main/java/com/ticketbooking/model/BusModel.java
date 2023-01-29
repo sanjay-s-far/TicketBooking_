@@ -1,5 +1,7 @@
 package com.ticketbooking.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +20,5 @@ public class BusModel {
 	  private int noOfSeats;
 	  private String mode;
 	  private String[] coverage;
+	  private String seatconfig;
 }

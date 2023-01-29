@@ -9,7 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import org.springframework.stereotype.Service;
 
+import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Entity.Login;
+import com.ticketbooking.Repository.Bus_Detailrepository;
 import com.ticketbooking.Repository.LoginRepo;
 
 @Service
@@ -17,6 +19,7 @@ public class LoginService {
 
 	@Autowired
 	private LoginRepo loginrepo;
+	private Bus_Detailrepository bus_detail;
 	
 
 
@@ -31,7 +34,6 @@ public class LoginService {
 
 	public List<Login> getuserdetail()
 	{
-		
 		return loginrepo.findAll();
 	}
 	
@@ -67,7 +69,8 @@ public class LoginService {
 		}
 		
 	}
-
+	
+	
 	public void DeleteById(String userid) {
 		loginrepo.deleteById(userid);
 	}

@@ -15,7 +15,7 @@ import com.ticketbooking.Entity.TicketBooking;
 import com.ticketbooking.Service.TicketBookingService;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4500")
 public class TicketBookingController {
    @Autowired
    private TicketBookingService ticketbookingservice;

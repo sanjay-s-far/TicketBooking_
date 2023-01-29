@@ -13,4 +13,7 @@ public interface LoginRepo extends JpaRepository<Login, String> {
 	
 	@Query("select usrName from Login usrName where usrName.username = :userName and usrName.password=:password")
 	Login FindByUserNameAndPassword(@PathVariable("userName") String userName, @PathVariable("password") String password);
+    
+	@Query("select count(username) from Login usernme")
+	String countUserName();
 }

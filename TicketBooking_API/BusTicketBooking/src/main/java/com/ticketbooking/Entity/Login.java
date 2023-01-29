@@ -15,6 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Login {
   @Id
+  
   private String userid;
   private String username;
   private String name;

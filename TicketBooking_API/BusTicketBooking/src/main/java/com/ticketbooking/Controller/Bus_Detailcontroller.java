@@ -1,7 +1,11 @@
 package com.ticketbooking.Controller;
 
 import java.util.List;
+
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,13 +16,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ticketbooking.Entity.Admincrediential;
 import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Service.Bus_Detailservice;
-import com.ticketbooking.model.BusDetailWithSchedules;
 import com.ticketbooking.model.BusModel;
-@CrossOrigin("http://localhost:4200")
+import com.ticketbooking.model.busDetailScheduleMode;
+import com.ticketbooking.model.countDataModel;
+
+@CrossOrigin("http://localhost:4500")
 @RestController
 public class Bus_Detailcontroller {
+	
 	@Autowired
 	private Bus_Detailservice bus_detailservice;
 	
@@ -62,11 +70,32 @@ public class Bus_Detailcontroller {
      {
     	 return bus_detailservice.listOfCoverage();
      }
+     //////////////////////owner based login
+     
+     @GetMapping("/ownerlogin")
+     public ResponseEntity<?> ownerlogin(@PathParam("BusName")String BusName,@PathParam("busNo")String busNo)
+     {
+    	 if(bus_detailservice.busdetail(BusName, busNo)!=null)
+    	 {
+    		 return new ResponseEntity<>( bus_detailservice.busdetail(BusName, busNo),HttpStatus.OK);
+         }else {
+         	return new ResponseEntity<>("USER DOES NOT EXIST, TRY REGISTERING",HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+         
+    	 }
+     
+     //////////////////////////////////
      
      @GetMapping("/details/{busId}")
-     public BusDetailWithSchedules listOfDetailWithSchedules(@PathVariable("busId") String BusId){
-    	 return bus_detailservice.BusDetailWithschedules(BusId);
+     public busDetailScheduleMode findUsingBusName(@PathVariable("busId") String busId){
+        return bus_detailservice.bdetailSchedule(busId);
      }
-   
+     
+     @GetMapping("/buscount")
+     public countDataModel buscountcntr()
+     {
+    	 return bus_detailservice.buscounts();
+     }
+    ////////////////////////////////////////////
 }
 
