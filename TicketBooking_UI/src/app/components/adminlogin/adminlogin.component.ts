@@ -22,24 +22,25 @@ export class AdminloginComponent implements OnInit {
 
   AdminLogin(){
     
-    this.adminservice.loginAdmin(this.adminName.replace(" ",""),this.adminPassword.replace(/ /g,'')).subscribe(
+    this.adminservice.loginAdmin(this.adminName.replace(" ",""),this.adminPassword.replace(/ /g,"")).subscribe(
       {
         next: (data)=>{
-          console.log(data.role);
+          console.log(data.rollbase);
           
-            if(data.role == "OWNER"){
-              sessionStorage.setItem("OWNER",data.adminId)
+            if(data.rollbase == "OWNER"){
+              sessionStorage.setItem("OWNER",data.adminid)
               this.router_.navigate(["owner/controlboard"])
-            }else if(data.role == "ADMIN-ALL"){
+            }else if(data.rollbase == "ADMIN-ALL"){
               console.log(data);
               // console.log(`the role is ${data.role}`)
-                sessionStorage.setItem("ADMIN-ALL",data.adminName)
+                sessionStorage.setItem("ADMIN-ALL",data.adminname)
                 this.router_.navigate(["admin/new-schedule"])
-            }else if(data.role == "ADMIN-R"){
-                sessionStorage.setItem("ADMIN-R",data.adminName)
+            }else if(data.rollbase == "ADMIN-R"){
+                sessionStorage.setItem("ADMIN-R",data.adminname)
                 this.router_.navigate(["admin/schedules"])
-            }else if(data.role == "SUPERADMIN"){
-              sessionStorage.setItem("SUPERADMIN",data.adminName)
+            }else if(data.rollbase == "SUPERADMIN"){
+              
+              sessionStorage.setItem("SUPERADMIN",data.adminname)
               this.router_.navigate(["admin/management"])
             }
         },

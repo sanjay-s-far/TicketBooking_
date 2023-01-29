@@ -3,6 +3,8 @@ import { Booking } from 'src/app/classes/booking';
 import { TicketbookingService } from 'src/app/services/Booking/ticketbooking.service';
 import { OwnersserviceService } from 'src/app/services/ownersservice.service';
 import Swal from "sweetalert2"
+import seatconfiguration1 from '../../../assets/seatconfig-json/seatconfig-1.json';
+import seatconfiguration2 from '../../../assets/seatconfig-json/seatconfig-2.json';
 @Component({
   selector: 'app-buscardlist',
   templateUrl: './buscardlist.component.html',
@@ -16,8 +18,11 @@ export class BuscardlistComponent implements OnInit {
 
    constructor(private  ownerservice:OwnersserviceService,private ticketbooking:TicketbookingService) { }
 
+  seatConfiguration1:any;
+  seatConfiguration2:any;
   ngOnInit(): void {
-    
+    this.seatConfiguration1=seatconfiguration1
+    this.seatConfiguration2 = seatconfiguration2
   }
   data!:string 
   busID!:string 
@@ -44,28 +49,33 @@ export class BuscardlistComponent implements OnInit {
   }
 
   booking=new Booking()
+
+  
   toBeBooked(detail:any){
    const totalseats= detail.noOfSeats-detail.bookedSeats
-    Swal.fire({
-      title: "Enter the number of seats",
-      input: 'number',
-      inputAttributes: {
-       max: totalseats.toString(),
-       min:"1",
-      },
-      showCancelButton: true,
-      confirmButtonText: 'Proceed',
-      showLoaderOnConfirm: true,
-      preConfirm: (data) => {
+  //   Swal.fire({
+  //     title: "Enter the number of seats",
+  //     input: 'number',
+  //     inputAttributes: {
+  //      max: totalseats.toString(),
+  //      min:"1",
+  //     },
+  //     showCancelButton: true,
+  //     confirmButtonText: 'Proceed',
+  //     showLoaderOnConfirm: true,
+  //     preConfirm: (data) => {
         
-        this.booking.setScheduleID(detail.scheduleID)
-        this.booking.setNoOfBookingSeats(data)
-        this.ticketbooking.seatbooking(this.booking).subscribe((data)=>{
-           console.log(data)
-        })
-  }})
-        
-    
+  //       this.booking.setScheduleID(detail.scheduleID)
+  //       this.booking.setNoOfBookingSeats(data)
+  //       this.ticketbooking.seatbooking(this.booking).subscribe((data)=>{
+  //          console.log(data)
+  //       })
+  // }})
+
+ 
+ 
+        console.log(detail)
+   
   }
  
 }

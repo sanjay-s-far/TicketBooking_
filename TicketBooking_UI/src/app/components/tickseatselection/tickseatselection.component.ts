@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import seatconfiguration1 from '../../../assets/seatconfig-json/seatconfig-1.json';
+import seatconfiguration2 from '../../../assets/seatconfig-json/seatconfig-2.json';
 @Component({
   selector: 'app-tickseatselection',
   templateUrl: './tickseatselection.component.html',
   styleUrls: ['./tickseatselection.component.css']
 })
 export class TickseatselectionComponent implements OnInit {
-   seatConfig: any = null;
+   
    seatmap:any = [];
     seatChartConfig = {
     showRowsLabel: false,
@@ -14,55 +15,23 @@ export class TickseatselectionComponent implements OnInit {
     newSeatNoForRow: false
   };
 
+  @Input() seatconfig:any;
+
 
    constructor(){
 
    }
   ngOnInit(): void {
-    this.seatConfig = [
-      {
-        seat_price: 250,
-        seat_map: [
-          {
-            seat_label: "1",
-            layout: "g_____"
-          },
-          {
-            seat_label: "2",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "3",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "4",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "5",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "6",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "7",
-            layout: "gg__gg"
-          },
-          {
-            seat_label: "8",
-            layout: "gggggg"
-          }
-        ]
-      }
-    ];
-    this.processSeatChart(this.seatConfig);
+    console.log(this.seatconfig)
     
+
+      this.processSeatChart(this.seatconfig);
+  
   }
 
+
   public processSeatChart(map_data: any[]) {
+    console.log(this.seatconfig)
     if (map_data.length > 0) {
       var seatNoCounter = 1;
       for (let __counter = 0; __counter < map_data.length; __counter++) {
@@ -84,7 +53,7 @@ export class TickseatselectionComponent implements OnInit {
           };
           row_label = "";
           var seatValArr = map_element.layout.split("");
-          console.log(seatValArr)
+          
           if (this.seatChartConfig.newSeatNoForRow) {
             seatNoCounter = 1; //Reset the seat label counter for new row
           }
@@ -115,6 +84,31 @@ export class TickseatselectionComponent implements OnInit {
           // console.log(" \n\n\n Seat Objects ", mapObj);
           this.seatmap.push(mapObj);
         });
+      }
+    }
+  }
+
+   cart:any = {
+    selectedSeats: [] ,
+    seatstoStore: [],
+    totalamount: 0,
+    cartId: "",
+    eventId: 0
+  };
+  seatobject:any;
+  public selectSeat(seatObject:any) {
+    if (seatObject.status == "available") {
+      seatObject.status = "booked";
+      this.cart.selectedSeats.push(seatObject.seatLabel);
+      this.cart.seatstoStore.push(seatObject.key);
+      this.cart.totalamount += seatObject.price;
+    } else if ((seatObject.status = "booked")) {
+      seatObject.status = "available";
+      var seatIndex = this.cart.selectedSeats.indexOf(seatObject.seatLabel);
+      if (seatIndex > -1) {
+        this.cart.selectedSeats.splice(seatIndex, 1);
+        this.cart.seatstoStore.splice(seatIndex, 1);
+        this.cart.totalamount -= seatObject.price;
       }
     }
   }

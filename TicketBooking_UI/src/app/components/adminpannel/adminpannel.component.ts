@@ -32,9 +32,9 @@ export class AdminpannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallbusdetail()
-    if(!sessionStorage.getItem("ADMIN-ALL")){
-      this.router_.navigate(["admin-owner/login"])
-    }
+    // if(!sessionStorage.getItem("ADMIN-ALL")){
+    //   this.router_.navigate(["admin-owner/login"])
+    // }
     
   }
 

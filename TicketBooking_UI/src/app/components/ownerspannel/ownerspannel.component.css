@@ -21,3 +21,8 @@
 {
     width:150px;
 }
+.seatconfigurationbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

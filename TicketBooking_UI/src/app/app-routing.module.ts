@@ -15,8 +15,8 @@ import { TickseatselectionComponent } from './components/tickseatselection/ticks
 import { TicketbookingService } from './services/Booking/ticketbooking.service';
 
 const routes: Routes = [
-  {path:'',component:TickseatselectionComponent},
-  //{path:'',component:HomepageComponent},
+ {path:'seatchart',component:TickseatselectionComponent},
+  {path:'',component:HomepageComponent},
 {path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'admin/new-schedule',component:AdminpannelComponent},

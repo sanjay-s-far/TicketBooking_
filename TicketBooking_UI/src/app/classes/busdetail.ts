@@ -6,5 +6,5 @@ export class Busdetail {
     coverage!:string ;
     busName!:string ;
     contactMail!:string
-    seatingschema!:string
+    seatconfig!:string
 }

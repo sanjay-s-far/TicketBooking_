@@ -55,7 +55,9 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     }
     this.Ownerservice.getcoverage().subscribe((data: any)=>{
       this.buscoverage=data
+      console.log(data)
     })
+    
   }
   
   getbusschedule()
@@ -63,7 +65,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.Adminservice.getbusschedule(this.from,this.to,this.date).subscribe((data)=>{
        this.schedulelist=data;
-       console.log(this.schedulelist)
+     
        this.showmusiccard=!this.showmusiccard;
     })
   }

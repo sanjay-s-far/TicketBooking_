@@ -30,10 +30,12 @@ export class OwnerControlBoardComponent implements OnInit {
       this.router_.navigate(['admin-owner/login'])
     }
     this.ownerdata = sessionStorage.getItem("OWNER")
+    console.log(this.ownerdata )
     this.ownerService.BusDetailWithSchedules(this.ownerdata).subscribe({
       next: (data)=>{
-        this.BusDetail=data.busDetail
-        this.dataSource = new MatTableDataSource(data.busSchedules) 
+       
+        this.BusDetail=data.bsdetail
+        this.dataSource = new MatTableDataSource(data.bschedule) 
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }

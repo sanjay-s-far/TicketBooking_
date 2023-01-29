@@ -29,7 +29,19 @@
             <label for="exampleFormControlInput1" class="form-label">Coverage</label>
             <input type="text" class="form-control"  name="Coverage" [(ngModel)]="busdetail.coverage" id="exampleFormControlInput1" placeholder="Coverage">
           </div>
-         
+         <div class="mb-3 seatconfigurationbox" >
+          <div>
+            <input class="form-check-input" type="radio" name="exampleRadios1" id="seatconfig-1" value="seatconfig-1" [(ngModel)]="busdetail.seatconfig" >
+            <img src="../../../assets/Images/seatconfig-1.jpg" alt="seatconfig-1">
+
+          </div>
+         <div>
+          <input class="form-check-input" type="radio" name="exampleRadios1" id="seatconfig-2" value="seatconfig-2" [(ngModel)]="busdetail.seatconfig" >
+          <img src="../../../assets/Images/seatconfig-2.jpg" alt="seatconfig-2">
+         </div>
+          
+          
+         </div>
           <button type="submit" class=" btn btn-primary">Submit</button>
     </form>
     
