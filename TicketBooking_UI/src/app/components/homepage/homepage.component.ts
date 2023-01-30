@@ -30,16 +30,14 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   date!:string 
   showmusiccard=true;
   profilerLogo:any;
-
+  
   constructor(private credential:UsercredentialsService,private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService, private router_:Router,private usercredential:UsercredentialsService) { }
   ngAfterViewInit(): void {
    let htmlelement:HTMLElement = document.getElementById("loginevent") as HTMLElement;
 
     if(!localStorage.getItem("loginUser")){
-      //htmlelement.click()
       setTimeout(()=>{
-      console.log("hello")
-        htmlelement.click()},10000
+        htmlelement.click()},100000
         )
     }
   }
@@ -65,7 +63,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.Adminservice.getbusschedule(this.from,this.to,this.date).subscribe((data)=>{
        this.schedulelist=data;
-     
+      
        this.showmusiccard=!this.showmusiccard;
     })
   }
@@ -74,6 +72,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   logout(event:any){
     if(event){
       localStorage.clear()
+      
       this.router_.navigate([""]).then(() =>{window.location.reload()})
     }
   }
@@ -107,7 +106,6 @@ export class HomepageComponent implements OnInit,AfterViewInit {
         if(data){
         this.router_.navigate([""]).then(()=>{window.location.reload()})
         localStorage.setItem("loginUser",data.name)
-        console.log(data.username)
       }},
       error:(err)=>{
         if(err){
@@ -126,7 +124,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   submitcredential()
   {
     console.log(this.reg.password)
-   
+    
     this.usercredential.postusercredential(this.reg).subscribe((data)=>{
       localStorage.setItem("loginUser",data.name)
       this.router_.navigate([""]).then(()=>{window.location.reload()});

@@ -15,7 +15,7 @@ export class BuscardlistComponent implements OnInit {
 @Input() schedulelist:any
 @ViewChild('widgetsContent') widgetsContent!: ElementRef;
 @ViewChild("para") para!:ElementRef;
-
+@Input() userlogin!:Boolean
 seatmap:any = [];
 seatChartConfig = {
 showRowsLabel: false,
@@ -29,14 +29,14 @@ cart:any = {
   cartId: "",
   eventId: 0
 };
+
    constructor(private  ownerservice:OwnersserviceService,private ticketbooking:TicketbookingService) { }
 
  
   ngOnInit(): void {
-   
+    console.log(this.userlogin)
   }
-  data!:string 
-  busID!:string 
+  
  
   public scrollRight() {
     
@@ -47,24 +47,10 @@ cart:any = {
     this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 400), behavior: 'smooth' });
   }
    
-  hello(busid:string){
-    this.busID = busid
-   
-  }
-
-  hello2(busID:any){
- this.ownerservice.getbusdetailbyId(busID).subscribe((req)=>{
-      this.data = req.mode
-    })
-    console.log(this.data)
-  }
-
-  booking=new Booking()
 
   configuration : any = null
   toBeBooked(detail:any){
   //  const totalseats= detail.noOfSeats-detail.bookedSeats
-
 
     if(detail == 'seatconfig-1'){  
       this.processSeatChart(seatconfiguration1)
@@ -77,6 +63,7 @@ cart:any = {
 
 closing(){
   this.seatmap = []
+  this.cart=[]
 }
   public processSeatChart(map_data: any[]) {
    
@@ -151,7 +138,9 @@ closing(){
       }
     }
   }
+ Ticket2BeBooked(){
 
+ }
 }
 
 

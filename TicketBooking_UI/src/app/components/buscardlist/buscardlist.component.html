@@ -1,90 +1,101 @@
 
 <div class="container-fluid bus-card-container ">
     <div  class="floating-btn" >
-        <button class="btn" (click)="scrollLeft()"><i class="fa-solid fa-chevron-left"></i></button>
+<button class="btn" (click)="scrollLeft()"><i class="fa-solid fa-chevron-left"></i></button>
     </div>
 
     <div #widgetsContent class="middle">
-        <div class="info-widget" *ngFor="let i of schedulelist">
-          
-            <div  class="card bus-card rounded border-2 mx-4" style="width: 20rem;">
-                <div class="card-body">
-                  <div >
-                  <h5 class="card-title text-center">{{i.busName}}</h5>
-                  
-                  <h6 class="card-subtitle mb-1 text-center text-muted">{{i.mode}}</h6>
-                  <div class="card-body-sec">
-                    <div>
-                        <p>{{i.from}}</p>
-                        <p class="timings mx-1">({{i.startingTime | date:'shortTime'}})</p>
-                        <p>
-                            <i class="fa-solid fa-arrow-right-long mx-2"></i>
-                        </p> 
-                        <p>{{i.to}}</p> 
-                        <p class="timings mx-1">({{i.reachTime | date:'shortTime'}})</p>  
-                    </div>
-                    <div class="seat-count">
-                      
-                    <p class="avail-seat">{{i.noOfSeats - i.bookedSeats}}(Avaliable Seats)</p> 
-                        <p class="mx-2 slash">/</p>
-                        <p class="text-muted ">{{i.noOfSeats}}(Total seats)</p>
-                    </div>
-                  </div>
-                  <!-- <button (click)="toBeBooked(i)" class="btn btn-secondary booking-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Book-{{i.fairPerSeat}}</button> -->
-                  <button (click)="toBeBooked(i.seatconfig)"  class="btn btn-secondary booking-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Book-{{i.fairPerSeat}}</button>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="modal fade" id="exampleModal"  data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Select the seats</h1>
-                      <button type="button" (click)="closing()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div style="text-align:center">
-                            <h3>
-                              Seat Chart Layout
-                            </h3>
-                          </div>
-                          <div class="col-lg-12 seat-container" >
-                            <div  *ngFor="let seatrow of seatmap " >
-                              <div class="col-12 pricing-label" *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">{{seatrow.seatPricingInformation}}</div>
-                              <div class="seatrow container">
-                                  <div *ngIf="seatChartConfig?.showRowsLabel">
-                                      <div class="row-label" >  {{seatrow.seatRowLabel}} </div>
-                                  </div>
-                                  <div *ngFor="let seatobj of seatrow.seats">
-                                      <div class="seat-item seat-space" style="color:white ; background-color:white" *ngIf="seatobj.seatLabel == ''">  &nbsp; </div>
-                                      <div   data-bs-toggle="tooltip" data-bs-placement="top"data-bs-title="This top tooltip is themed via CSS variables."
-                                      [ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }" 
-                                       (click)="selectSeat(seatobj)" *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
-                               
-                          
-                                  </div>
-                              </div>
-                          </div>
-                          </div>
-                          
-                          <div>
-                            {{cart|json}}
-                          </div>
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" (click)="closing()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
-                      </div>
-                  </div>
-                </div>
-              </div>
+<div class="info-widget" *ngFor="let i of schedulelist">
+  
+    <div  class="card bus-card rounded border-2 mx-4" style="width: 20rem;">
+<div class="card-body">
+  <div >
+  <h5 class="card-title text-center">{{i.busName}}</h5>
+  
+  <h6 class="card-subtitle mb-1 text-center text-muted">{{i.mode}}</h6>
+  <div class="card-body-sec">
+<div>
+    <p>{{i.from}}</p>
+    <p class="timings mx-1">({{i.startingTime | date:'shortTime'}})</p>
+    <p>
+<i class="fa-solid fa-arrow-right-long mx-2"></i>
+    </p> 
+    <p>{{i.to}}</p> 
+    <p class="timings mx-1">({{i.reachTime | date:'shortTime'}})</p>  
+</div>
+<div class="seat-count">
+  
+<p class="avail-seat">{{i.noOfSeats - i.bookedSeats}}(Avaliable Seats)</p> 
+    <p class="mx-2 slash">/</p>
+    <p class="text-muted ">{{i.noOfSeats}}(Total seats)</p>
+</div>
+  </div>
+  <!-- <button (click)="toBeBooked(i)" class="btn btn-secondary booking-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Book-{{i.fairPerSeat}}</button> -->
+  <button (click)="toBeBooked(i.seatconfig)"  class="btn btn-secondary booking-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="userlogin">Book-{{i.fairPerSeat}}</button>
+  </div>
+  
+</div>
+ </div>
+ <div class="modal fade" id="exampleModal"  data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog ">
+  <div class="modal-content">
+<div class="modal-header">
+  <h1 class="modal-title fs-5" id="exampleModalLabel">Select the seats</h1>
+  <button type="button" (click)="closing()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <div style="text-align:center">
+    <h3>Seat Chart Layout
+</h3>
+</div>
+<div class="seatselectioncontainer container">
+<div class="col-lg-12 seat-container" >
+  <div  *ngFor="let seatrow of seatmap " >
+    <div class="col-12 pricing-label" *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">{{seatrow.seatPricingInformation}}</div>
+    <div class="seatrow container">
+<div *ngIf="seatChartConfig?.showRowsLabel">
+<div class="row-label" >  {{seatrow.seatRowLabel}} </div>
+</div>
+<div *ngFor="let seatobj of seatrow.seats">
+<div class="seat-item seat-space" style="color:white ; background-color:white" *ngIf="seatobj.seatLabel == ''">  &nbsp; </div>
+<div   data-bs-toggle="tooltip" data-bs-placement="top"data-bs-title="This top tooltip is themed via CSS variables."
+[ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }" 
+ (click)="selectSeat(seatobj)" *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
 
-        </div>
+</div>
+    </div>
+</div>
+</div>
+
+<div  class="container">
+  <div class="col-lg-12 summary-bar">
+<div class="col-lg-7" >
+ <div>
+  <h5>Total Selected : {{ cart?.selectedSeats?.length }}</h5>
+  <h5>Total Amount :&nbsp;&nbsp; {{cart.totalamount}} Rs</h5>
+ </div>
+</div>
+<div class="col-lg-5 d-flex flex-wrap selected-seats">
+  <h5 class="col-lg-12 no-padding">Selected Seats : </h5>
+  <span *ngFor="let seatLabel of cart.selectedSeats" class="badge badge-primary">{{seatLabel}}</span>
+</div>
+  </div>
+  
+</div>
+</div>
+</div>
+<div class="modal-footer">
+    <button type="button" (click)="closing()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" [disabled]="cart?.selectedSeats?.length == 0 " class="btn btn-primary">Book selected seats</button>
+  </div>
+  </div>
+</div>
+ </div>
+
+</div>
     </div>
     <div class="floating-btn">
-        <button class="btn right-left-btn" (click)="scrollRight()"><i class="fa-solid fa-chevron-right"></i></button>
+<button class="btn right-left-btn" (click)="scrollRight()"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
    
     </div>

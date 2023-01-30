@@ -46,7 +46,7 @@
       </form>
     </div>
     <div [class.d-none]="schedulelist==null">
-    <app-buscardlist  [schedulelist]="schedulelist"></app-buscardlist>
+    <app-buscardlist [userlogin] ="if_userpresent"  [schedulelist]="schedulelist"></app-buscardlist>
   </div>
     </div>
     
